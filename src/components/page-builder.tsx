@@ -3,6 +3,7 @@ import { Features } from "@/components/blocks/features";
 import { SplitImage } from "@/components/blocks/split-image";
 import { FAQs } from "@/components/blocks/faqs";
 import { PAGE_QUERYResult } from "@/sanity/types";
+import { assertNever } from "@/lib/assertNever";
 
 type PageBuilderProps = {
   content: NonNullable<PAGE_QUERYResult>["content"];
@@ -27,7 +28,7 @@ export function PageBuilder({ content }: PageBuilderProps) {
             return <FAQs key={block._key} {...block} />;
           default:
             // This is a fallback for when we don't have a block type
-            return <div key={block._key}>Block not found: {block._type}</div>;
+            return assertNever(block);
         }
       })}
     </main>
