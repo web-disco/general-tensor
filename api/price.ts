@@ -3,6 +3,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 const allowedOrigins = [
   "https://general-tensor.webflow.io",
   "https://generaltensor.io",
+  "https://www.generaltensor.io", 
 ];
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
